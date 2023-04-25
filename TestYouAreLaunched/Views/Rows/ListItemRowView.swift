@@ -17,24 +17,25 @@ struct ListItemRowView: View {
     
     var body: some View {
         VStack(alignment: .leading, content: {
+            Spacer(minLength: .spacing24dp)
             photoImageView
-            Spacer(minLength: 10)
+            Spacer(minLength: .spacing10dp)
             headTitleView
+            Spacer(minLength: .spacing06dp)
             categoriesView
-            Spacer(minLength: 8)
+            Spacer(minLength: .spacing08dp)
             tagsView
         })
     }
     
     private var photoImageView: some View {
-            GeometryReader { geometryProxy in
-                ZStack {
-                    CoverPhotoContentView(photoImage: vendor?.coverPhoto)
-                    cityWithFavoriteContentView
-                }
-                .frame(width: geometryProxy.size.width, height: geometryProxy.size.height / 2)
-                .cornerRadius(10)
-            }
+        ZStack {
+            CoverPhotoContentView(photoImage: vendor?.coverPhoto)
+            cityWithFavoriteContentView
+        }
+        .frame(width: UIScreen.main.bounds.width - .padding32dp,
+               height: (UIScreen.main.bounds.width - .padding32dp) / 2)
+        .cornerRadius(.radius10dp)
     }
     
     private var cityWithFavoriteContentView: some View {
@@ -42,16 +43,16 @@ struct ListItemRowView: View {
             HStack {
                 Spacer()
                 FavoriteButton(vendor: vendor) {
-                    
+                    debugPrint("Action")
                 }
             }
-            .padding(10)
+            .padding(.padding10dp)
             Spacer()
             HStack {
                 cityView
                 Spacer()
             }
-            .padding(8)
+            .padding(.padding08dp)
         }
     }
     
@@ -60,7 +61,7 @@ struct ListItemRowView: View {
             Text(areaServed)
                 .modifier(BodyModifier())
                 .background(.white)
-                .cornerRadius(16)
+                .cornerRadius(.radius16dp)
                 .opacity(0.9)
         }
     }

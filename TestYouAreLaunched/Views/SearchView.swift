@@ -21,17 +21,17 @@ struct SearchView: View {
                 TextField("Search...", text: $text)
                 Image(uiImage: Asset.Images.iconSearch.image)
             }
-            .padding(.vertical, 9)
-            .padding(.horizontal, 14)
+            .padding(.vertical, .padding08dp + 1)
+            .padding(.horizontal, .padding12dp + .padding02dp)
         }
         .background(background)
     }
     
     private var background: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: .radius16dp)
                 .fill(.white)
-                .shadow(color: .black.opacity(0.05), radius: 14, x: 0, y: 6)
+                .shadow(color: .black.opacity(0.05), radius: .radius16dp - .radius02dp, x: 0, y: 6)
         }
     }
 }

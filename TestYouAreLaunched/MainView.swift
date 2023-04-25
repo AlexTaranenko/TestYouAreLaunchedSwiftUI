@@ -8,16 +8,36 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    // MARK: - Properties
+    @StateObject var mainViewModel = MainViewModel()
+    
+    // MARK: - Body
     var body: some View {
         VStack {
-            SearchView(text: .constant(""))
-                .padding(.bottom, 24)
-            List {
+            SearchView(text: $mainViewModel.searchText)
+            
+            if mainViewModel.filteredVendors.isEmpty {
                 
             }
+                
+            List {
+                ForEach(mainViewModel.filteredVendors, id: \.id) { vendor in
+                    ListItemRowView(vendor: vendor)
+                        .listRowSeparator(.hidden)
+                }
+            }
+            .listStyle(.plain)
         }
-        .padding(.vertical, 24)
-        .padding(.horizontal, 16)
+        .onAppear {
+            do {
+                try mainViewModel.loadVendors()
+            } catch let error {
+                debugPrint(error)
+            }
+        }
+        .padding(.vertical, .padding24dp)
+        .padding(.horizontal, .padding16dp)
     }
 }
 
