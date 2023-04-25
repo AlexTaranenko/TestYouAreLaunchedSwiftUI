@@ -21,7 +21,7 @@ final public class MainViewModel: ObservableObject, MainViewProtocol {
     
     // MARK: - MainViewProtocol
     var filteredVendors: [Vendor] {
-        guard !searchText.isEmpty else {
+        guard !searchText.isEmpty && searchText.count >= 3 else {
             return vendors
         }
         return vendors.filter({ ($0.companyName ?? "").localizedCaseInsensitiveContains(searchText) })

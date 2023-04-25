@@ -11,33 +11,42 @@ struct MainView: View {
     
     // MARK: - Properties
     @StateObject var mainViewModel = MainViewModel()
+    @State(initialValue: nil) private var error: Error?
     
     // MARK: - Body
     var body: some View {
-        VStack {
-            SearchView(text: $mainViewModel.searchText)
-            
-            if mainViewModel.filteredVendors.isEmpty {
+        ZStack {
+            VStack {
+                SearchView(text: $mainViewModel.searchText)
                 
-            }
-                
-            List {
-                ForEach(mainViewModel.filteredVendors, id: \.id) { vendor in
-                    ListItemRowView(vendor: vendor)
-                        .listRowSeparator(.hidden)
+                if mainViewModel.filteredVendors.isEmpty && !mainViewModel.searchText.isEmpty {
+                        ZStack {
+                            Color.clear.edgesIgnoringSafeArea(.all)
+                            EmptyResultView()
+                        }
+                } else {
+                    List {
+                        ForEach(mainViewModel.filteredVendors, id: \.id) { vendor in
+                            ListItemRowView(vendor: vendor)
+                                .listRowSeparator(.hidden)
+                        }
+                    }
+                    .listStyle(.plain)
+                    .scrollIndicators(.hidden)
                 }
             }
-            .listStyle(.plain)
         }
         .onAppear {
             do {
                 try mainViewModel.loadVendors()
             } catch let error {
-                debugPrint(error)
+                self.error = error
             }
         }
+        .errorAlert(error: $error)
         .padding(.vertical, .padding24dp)
         .padding(.horizontal, .padding16dp)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
