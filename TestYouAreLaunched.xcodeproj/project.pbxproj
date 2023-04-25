@@ -33,6 +33,11 @@
 		1F47B0C129F7141300BFF55E /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47B0C029F7141300BFF55E /* FavoriteButton.swift */; };
 		1F47B0C329F71C4D00BFF55E /* HeadlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47B0C229F71C4D00BFF55E /* HeadlineModifier.swift */; };
 		1F47B0C629F7206900BFF55E /* TagsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F47B0C529F7206900BFF55E /* TagsContentView.swift */; };
+		1FE100C629F7263A0076DB63 /* CategoriesContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE100C529F7263A0076DB63 /* CategoriesContentView.swift */; };
+		1FE100C929F727670076DB63 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE100C829F727670076DB63 /* String+Extensions.swift */; };
+		1FE100D529F8612D0076DB63 /* CategoryItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE100D429F8612D0076DB63 /* CategoryItemRowView.swift */; };
+		1FE100D829F86B830076DB63 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE100D729F86B830076DB63 /* SVGKitSwift */; };
+		1FE100DA29F86B9B0076DB63 /* SVGImgProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE100D929F86B9B0076DB63 /* SVGImgProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,10 @@
 		1F47B0C029F7141300BFF55E /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		1F47B0C229F71C4D00BFF55E /* HeadlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineModifier.swift; sourceTree = "<group>"; };
 		1F47B0C529F7206900BFF55E /* TagsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsContentView.swift; sourceTree = "<group>"; };
+		1FE100C529F7263A0076DB63 /* CategoriesContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesContentView.swift; sourceTree = "<group>"; };
+		1FE100C829F727670076DB63 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		1FE100D429F8612D0076DB63 /* CategoryItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemRowView.swift; sourceTree = "<group>"; };
+		1FE100D929F86B9B0076DB63 /* SVGImgProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImgProcessor.swift; sourceTree = "<group>"; };
 		6055DA4D736B201A07E95750 /* Pods-TestYouAreLaunched.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestYouAreLaunched.debug.xcconfig"; path = "Target Support Files/Pods-TestYouAreLaunched/Pods-TestYouAreLaunched.debug.xcconfig"; sourceTree = "<group>"; };
 		6A26D8B47AD40AA838209E7A /* Pods-TestYouAreLaunched.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestYouAreLaunched.release.xcconfig"; path = "Target Support Files/Pods-TestYouAreLaunched/Pods-TestYouAreLaunched.release.xcconfig"; sourceTree = "<group>"; };
 		D6F8002541C1BACEEA41076B /* Pods_TestYouAreLaunched.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestYouAreLaunched.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE100D829F86B830076DB63 /* SVGKitSwift in Frameworks */,
 				1F47B0AA29F6751100BFF55E /* Kingfisher in Frameworks */,
 				1C50319EAA2C5B25F8C160D3 /* Pods_TestYouAreLaunched.framework in Frameworks */,
 			);
@@ -214,6 +224,7 @@
 				1F47B0AB29F67DF400BFF55E /* CoverPhotoContentView.swift */,
 				1F47B0C029F7141300BFF55E /* FavoriteButton.swift */,
 				1F47B0C529F7206900BFF55E /* TagsContentView.swift */,
+				1FE100C529F7263A0076DB63 /* CategoriesContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,8 +273,10 @@
 		1F47B0BD29F70D9E00BFF55E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1FE100C729F7274D0076DB63 /* Extensions */,
 				1F47B0BE29F70DC500BFF55E /* BodyModifier.swift */,
 				1F47B0C229F71C4D00BFF55E /* HeadlineModifier.swift */,
+				1FE100D929F86B9B0076DB63 /* SVGImgProcessor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -272,8 +285,17 @@
 			isa = PBXGroup;
 			children = (
 				1F47B0A629F5D9A400BFF55E /* ListItemRowView.swift */,
+				1FE100D429F8612D0076DB63 /* CategoryItemRowView.swift */,
 			);
 			path = Rows;
+			sourceTree = "<group>";
+		};
+		1FE100C729F7274D0076DB63 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FE100C829F727670076DB63 /* String+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ECBE7802C6C7DE23226B4AD0 /* Frameworks */ = {
@@ -305,6 +327,7 @@
 			name = TestYouAreLaunched;
 			packageProductDependencies = (
 				1F47B0A929F6751100BFF55E /* Kingfisher */,
+				1FE100D729F86B830076DB63 /* SVGKitSwift */,
 			);
 			productName = TestYouAreLaunched;
 			productReference = 1F47B04929F5B5EC00BFF55E /* TestYouAreLaunched.app */;
@@ -380,6 +403,7 @@
 			mainGroup = 1F47B04029F5B5EC00BFF55E;
 			packageReferences = (
 				1F47B0A829F6751100BFF55E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1FE100D629F86B820076DB63 /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = 1F47B04A29F5B5EC00BFF55E /* Products */;
 			projectDirPath = "";
@@ -487,6 +511,7 @@
 			files = (
 				1F47B0AC29F67DF400BFF55E /* CoverPhotoContentView.swift in Sources */,
 				1F47B04F29F5B5EC00BFF55E /* MainView.swift in Sources */,
+				1FE100C629F7263A0076DB63 /* CategoriesContentView.swift in Sources */,
 				1F47B08029F5C28400BFF55E /* Vendor.swift in Sources */,
 				1F47B04D29F5B5EC00BFF55E /* TestYouAreLaunchedApp.swift in Sources */,
 				1F47B08629F5CBEC00BFF55E /* Tag.swift in Sources */,
@@ -494,10 +519,13 @@
 				1F47B07829F5B7E500BFF55E /* Network.swift in Sources */,
 				1F47B08229F5C8D200BFF55E /* PhotoImage.swift in Sources */,
 				1F47B08429F5CB1E00BFF55E /* Category.swift in Sources */,
+				1FE100D529F8612D0076DB63 /* CategoryItemRowView.swift in Sources */,
 				1F47B0A729F5D9A500BFF55E /* ListItemRowView.swift in Sources */,
 				1F47B0C629F7206900BFF55E /* TagsContentView.swift in Sources */,
+				1FE100C929F727670076DB63 /* String+Extensions.swift in Sources */,
 				1F47B08C29F5D78300BFF55E /* Assets.swift in Sources */,
 				1F47B0BF29F70DC500BFF55E /* BodyModifier.swift in Sources */,
+				1FE100DA29F86B9B0076DB63 /* SVGImgProcessor.swift in Sources */,
 				1F47B0C329F71C4D00BFF55E /* HeadlineModifier.swift in Sources */,
 				1F47B0C129F7141300BFF55E /* FavoriteButton.swift in Sources */,
 			);
@@ -831,6 +859,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		1FE100D629F86B820076DB63 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -838,6 +874,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1F47B0A829F6751100BFF55E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		1FE100D729F86B830076DB63 /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FE100D629F86B820076DB63 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
